@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/49e440d78e.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        background-color: #f7f8fa;
+      }
+      #container {
+        display: flex;
+        border: 1px solid lightgrey;
+        width: 100%;
+        height: 50px;
+        flex-wrap: wrap;
+        margin-bottom: 50px;
+      }
+      #text1 {
+        font-size: 15px;
+        color: #b1cfbd;
+        padding-left: 10px;
+        font-weight: 400;
+      }
+      #shopping {
+        margin-left: 750px;
+        margin-top: 13px;
+        font-weight: 400;
+      }
+      #slice {
+        font-size: 50px;
+        line-height: 50px;
+        font-weight: 30;
+        margin-left: 3px;
+      }
+      i {
+        margin-top: 1px;
+        background-color: #87b7a0;
+        color: black;
+        height: 12px;
+        border-radius: 60%;
+        padding: 12px;
+        color: white;
+        margin-top: 5px;
+      }
+      #text {
+        padding-left: 130px;
+        line-height: 10px;
+      }
+      .main {
+        display: flex;
+        width: 80%;
+        margin: auto;
+        background-color: #f7f8fa;
+      }
+      .con {
+        width: 65%;
+        margin-right: 20px;
+      }
+      .con > div {
+        display: flex;
+        box-sizing: border-box;
+        padding: 10px;
+        background-color: white;
+        border-bottom: 1px solid rgb(187, 183, 183);
+      }
+      .con > div > div {
+        margin-left: 10px;
+      }
+      .right {
+        width: 35%;
+        margin-right: 20px;
+        box-sizing: border-box;
+        /* padding: 20px; */
+        /* height: 300px; */
+      }
+      .r1 {
+        background-color: white;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+      }
+      img {
+        width: 120px;
+      }
+      .amt {
+        display: flex;
+
+        align-items: center;
+        justify-content: space-between;
+      }
+      .btn {
+        color: white;
+        background-color: black;
+        font-weight: 900;
+        font-size: 20px;
+        width: 100%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border: none;
+      }
+      .coupon {
+        color: #b0b0b0;
+        text-align: center;
+      }
+      .del {
+        /* margin-left: -290px; */
+        /* margin-top: 130px; */
+      }
+      .credit {
+        width: 100%;
+      }
+      @media screen and (min-width: 0px) and (max-width: 928px) {
+        .main {
+          flex-wrap: wrap;
+        }
+        .right {
+          width: 100%;
+        }
+        .con {
+          width: 100%;
+        }
+
+        .con > div {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .con > div > div > p {
+          width: 100px;
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .del {
+          /* margin-left: -100px; */
+          /* margin-top: 50px; */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1 id="text">SHEIN</h1>
+      <p1 id="slice">/</p1>
+      <i class="fas fa-lock"></i>
+      <p id="text1">SECURE CHECKOUT</p>
+      <a id="shopping">CONTINUE SHOPPING</a>
+    </div>
+    <div class="main">
+      <div class="con"></div>
+      <div class="right">
+        <div class="r1">
+          <h2>Order Summary</h2>
+          <div class="amt">
+            <p>Subtotal</p>
+            <h2 class="total"></h2>
+          </div>
+          <button class="btn">CHECKOUT SECURELY NOW</button>
+          <p class="coupon">
+            Apply a Coupon Code, SHEIN Points on the next step.
+          </p>
+        </div>
+        <div class="cre">
+          <h2>We Accept</h2>
+          <img
+            class="credit"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh9UeFGSLTzKD3iAFl8aMwpJv3hprnMzz67g&usqp=CAU"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  var arr2 = JSON.parse(localStorage.getItem("bagitm"));
+
+  arr2.map(function (elem, index) {
+    var img = document.createElement("img");
+    var name = document.createElement("p");
+    var price = document.createElement("h4");
+    var div = document.createElement("div");
+    var div1 = document.createElement("div");
+    var div2 = document.createElement("div");
+    var div3 = document.createElement("div");
+    var del = document.createElement("h4");
+    del.textContent = "Delete";
+    img.setAttribute("src", elem.imgUrl);
+    name.textContent = elem.name;
+    price.textContent = "USD$" + elem.price;
+    div1.append(name, price, del);
+    div2.append(img);
+    del.classList.add("del");
+
+    del.addEventListener("click", function () {
+      event.target.parentNode.remove();
+      delfun(elem);
+    });
+    div.append(div2, div1);
+    document.querySelector(".con").append(div);
+  });
+
+  function delfun(index) {
+    arr2.splice(index, 1);
+    localStorage.setItem("bagitm", JSON.stringify(arr2));
+  }
+
+  console.log(arr2);
+  var total = 0;
+  for (i = 0; i < arr2.length; i++) {
+    total = total + arr2[i].price;
+  }
+
+  function amt() {
+    document.querySelector(".total").textContent = "US$" + total + ".00";
+  }
+  amt();
+
+  localStorage.setItem("totalamount", JSON.stringify(total));
+</script>
