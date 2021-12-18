@@ -8,11 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@500&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="./SignIn.css"> -->
     <style>
-        /* header */
-        /* upper_navigation bar */
+        /*----------------------- header ----------------------------------------- */
+       
+        /* -----------------------upper_navigation bar----------------------------- */
         body{
             margin: 0px;
             font-family: 'Mulish', sans-serif;
+            /* height: auto; */
         }
         *{
             margin: 0px;
@@ -74,9 +76,6 @@
             display: flex;
             align-items: center;
         }
-        /* .right_box .services_offers span::after{
-            content: " ";
-        } */
         .upper_nav .right_box .services_offers span{
             color: red;
             font-weight: bolder;
@@ -97,7 +96,8 @@
             color: black;
         }
 
-        /* lower_navigation bar */
+
+        /* --------------------lower_navigation bar -------------------------------*/
         .lower_nav{
             display: flex;
             background-color: white;
@@ -169,9 +169,9 @@
             cursor: pointer;
         }
 
-        /*  ------------------------------------------------------------------------------------------ */
+       
 
-        /* footer */
+        /* -------------------------footer----------------------------------- */
         footer .main_div{
             width: 99.8%;
             height: 470px;
@@ -186,31 +186,31 @@
 
         .main_div > .left{
             width: 35%;
-            /* border: 1px solid black; */
+            border: 1px solid black;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
         .main_div > .right{
             width: 40%;
-            /* border: 1px solid black; */
+            border: 1px solid black;
         }
         .main_div > .left > .upper{
-            /* border: 1px solid red; */
+            border: 1px solid red;
             height: 45%;
             display: flex;
             justify-content: space-between;
         }
         .main_div > .left > .lower{
-            /* border: 1px solid red; */
+            border: 1px solid red;
             height: 35%;
         }
         .main_div > .left > .upper > *{
             width: 25%;
-            /* border: 1px solid green; */
+            border: 1px solid green;
         }
         .main_div > .left > .upper > * > *{
-            /* border: 1px solid black; */
+            border: 1px solid black;
             margin-bottom: 0.8%;
         }
         .main_div > .left > .upper > * > div > a{
@@ -237,27 +237,27 @@
             margin-left: 2%;
         }
         .main_div > .left > .lower > div:last-child{
-            /* border: 1px solid black; */
+            border: 1px solid black;
             display: flex;
             align-items: center;
             margin-bottom: 0px;
         }
         .main_div > .left > .lower > div:last-child > img{
             width: 2%;
-            /* border: 1px solid red; */
+            border: 1px solid red;
         }
         .main_div > .left > .lower > div:last-child > span{
-            /* border: 1px solid red; */
+            border: 1px solid red;
             text-decoration: underline;
         }
 
         .main_div > .right > .top{
-            /* border: 1px solid green; */
+            border: 1px solid green;
             display: flex;
             justify-content: space-between;
         }
         .main_div > .right > .top > .left{
-            /* border: 1px solid red; */
+            border: 1px solid red;
             width: 55%;
         }
         .main_div > .right > .top >.left > div img{
@@ -266,22 +266,22 @@
             margin-right: 5%;
         }
         .main_div > .right > .top > .right{
-            /* border: 1px solid red; */
+            border: 1px solid red;
             width: 30%;
         }
         .main_div > .right > .top > .right > div img{
             width: 15%;
             margin-top: 11%;
             margin-right: 7%;
-            /* border: 1px solid red; */
+            border: 1px solid red;
         }
         .main_div > .right > .center{
-            /* border: 1px solid green; */
+            border: 1px solid green;
             height: 25%;
             margin-top: 3%;
         }
         .main_div > .right > .center > div{
-            /* border: 1px solid black; */
+            border: 1px solid black;
             display: flex;
             margin-top: 1.1%;
         }
@@ -311,10 +311,10 @@
             border-radius: 3px;
         }
         .main_div > .right > .bottom{
-            /* border: 1px solid black; */
+            border: 1px solid black;
         }
         .main_div > .right > .bottom > div{
-            /* border: 1px solid red; */
+            border: 1px solid red;
             margin-top: 2%;
         }
         .main_div > .right > .bottom > div img{
@@ -322,10 +322,204 @@
             margin-right: 1.8%;
         }
 
-/* -------------------------------------------------------------------------- */
+        /* -------------responsive designing of header and footer ---------------------*/
+
+        /* upper_nav for medium size screen */
+        @media only screen and (min-width : 500px) and (max-width : 1000px){
+            header > nav.upper_nav{
+                height: auto;
+                width : 100%;
+                display : grid;
+                grid-template-columns: repeat(2,1fr);
+                grid-template-rows: 40px 45px;
+                grid-template-areas: 
+                "center_box icons"
+                "left_box left_box";
+                /* align-items: center;
+                justify-items: center; */
+                justify-content: center;
+            }
+            header > nav.upper_nav > div.center_box{
+                grid-area: center_box;
+                width: 100%;
+            }
+            header > nav.upper_nav > div.right_box > div.icons{
+                grid-area: icons;
+                width: 100%;
+            }
+            header > nav.upper_nav > div.left_box{
+                grid-area: left_box;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+            }
+            header > nav.upper_nav > div.right_box > div.services_offers{
+                display: none;
+            }
+        }
+
+        /* upper_nav for small size screen */
+        @media only screen and (max-width : 499px){
+            header > nav.upper_nav{
+                height: auto;
+                width : 100%;
+                display : grid;
+                grid-template-columns: repeat(2,1fr);
+                grid-template-rows: 40px 30px;
+                grid-template-areas: 
+                "center_box icons"
+                "left_box left_box";
+                /* align-items: center;
+                justify-items: center; */
+                justify-content: center;
+            }
+            header > nav.upper_nav > div.center_box{
+                grid-area: center_box;
+                width: 100%;
+                font-size: 160%;
+            }
+            header > nav.upper_nav > div.right_box > div.icons{
+                grid-area: icons;
+                width: 100%;
+            }
+            header > nav.upper_nav > div.left_box{
+                grid-area: left_box;
+                height: auto;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                font-size: 90%;
+            }
+            header > nav.upper_nav > div.right_box > div.services_offers{
+                display: none;
+            }
+        }
+
+        /* lower_nav for medium size screen  */
+        @media only screen and (min-width : 500px) and (max-width : 1000px){
+            header > nav.lower_nav{
+                width: 100%;
+                height: fit-content;
+                box-sizing: border-box;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: minmax(20px, auto);
+                /* align-items: center;
+                justify-items: center; */
+                align-content: center;
+                justify-content: center;
+
+                grid-template-areas: 
+                "right";
+            }
+            header > nav.lower_nav > div.left{
+                /* grid-area: left;
+                width: 100%;
+                display: flex;
+                justify-content: center; */
+                display: none;
+            }
+            /* header > nav.lower_nav > div.left > div{
+                margin-left: 1%;
+                font-size: 73%;
+            } */
+            header > nav.lower_nav > div.right{
+                grid-area: right;
+                width: 100%;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+            }
+            header > nav.lower_nav > div.right > input{
+                padding: 1.5% 0%;
+                width: 80%;
+            }
+            header > nav.lower_nav > div.right > div{
+                width: 10%;
+                margin-right: 0%;
+            } 
+        }
+
+        /* lower_nav for small size screen */
+        @media only screen and (max-width : 1000px){
+            header > nav.lower_nav{
+                width: 100%;
+                height: fit-content;
+                box-sizing: border-box;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(1,minmax(20px, atuo));
+                /* align-items: center;
+                justify-items: center; */
+                align-content: center;
+                justify-content: center;
+
+                grid-template-areas: 
+                "right"
+                "right";
+            }
+            header > nav.lower_nav > div.left{
+                /* grid-area: left;
+                width: 100%;
+                display: flex;
+                justify-content: center; */
+                display: none;
+            }
+            /* header > nav.lower_nav > div.left > div{
+                margin-left: 1%;
+                font-size: 73%;
+            } */
+            header > nav.lower_nav > div.right{
+                grid-area: right;
+                width: 100%;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+            }
+            header > nav.lower_nav > div.right > input{
+                padding: 1.5% 0%;
+                width: 80%;
+            }
+            header > nav.lower_nav > div.right > div{
+                width: 10%;
+                padding-right: 0%;
+            } 
+        }
+
+        /* -------------responsive design for footer------------- */
+
+        /* ------------medium size--------- */
+        @media only screen and (min-width : 0px) and (max-width : 1000px){
+            footer .main_div{
+                height: auto;
+                border: 1px solid green;
+                box-sizing: border-box;
+                /* width: 90%; */
+                display: grid;
+                grid-template-columns: 100%;
+                grid-template-rows: repeat(2,minmax(300px, auto));
+                grid-template-areas: 
+                "right"
+                "left";
+                /* align-content: flex-start; */
+                /* justify-content: center; */
+                align-items: center;
+                justify-items: center;
+                grid-row-gap: 45px;
+            }
+            footer .main_div > div.left{
+                grid-area: left;
+                width: 95%;
+            }
+            footer .main_div > div.right{
+                grid-area: right;
+                width: 95%;
+            }
+        }
 
 
-        /* body part of signIn page */
+
+        /*------------------- body part of signIn page -------------------------*/
 
         /* body .main_container{
             width: 50%;
@@ -479,6 +673,9 @@
             text-decoration: none;
             color: blue;
         } */
+
+
+        
     </style>
 </head>
 <body>
@@ -551,8 +748,8 @@
 
 <!-- ----------------------------------------------------------------------------------- -->
 
-    <!-- <body>
-        <div class="main_container">
+    <body>
+        <!-- <div class="main_container">
             <div class="left">
                 <h3 class="heading">Sign In</h3>
                 <div class="address">
@@ -650,8 +847,8 @@
                     <div>( Get 10% off coupon and <a href="#">more</a> )</div>
                 </div>
             </div>
-        </div>
-    </body> -->
+        </div> -->
+    </body>
 
 <!-- ------------------------------------------------------------------------------------ -->
 
